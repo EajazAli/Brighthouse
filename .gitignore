@@ -1,0 +1,7 @@
+node_modules/
+dist/
+lab/
+raw/
+.env
+*.log
+BRIEF.md
