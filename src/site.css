@@ -254,8 +254,16 @@ html:lang(ar) .walk__item h3 { font-weight: 600; line-height: 1.5; }
 .walk__end { flex: none; width: min(24rem, 78vw); padding-inline-end: 6vw; }
 .walk__end p { font-family: var(--sc-font-display); font-size: var(--sc-t-xl); line-height: 1.2; margin-bottom: var(--sc-5); }
 html:lang(ar) .walk__end p { line-height: 1.6; font-weight: 500; }
-[dir="rtl"] .walk [data-sc-stage] { transform: scaleX(-1); }
-[dir="rtl"] .walk__rail > * { transform: scaleX(-1); }
+/* Arabic: the engine always travels the rail leftwards. Lay the rail out
+   left-to-right, then mirror the stage and un-mirror each item, so the heading
+   starts on the right and the photos arrive from the left as they should. */
+[dir="rtl"] .walk [data-sc-stage] { direction: ltr; transform: scaleX(-1); }
+[dir="rtl"] .walk__rail > * { direction: rtl; transform: scaleX(-1); }
+@media (prefers-reduced-motion: reduce) {
+  /* No travel here: the rail is a native sideways scroller, so drop the mirror. */
+  [dir="rtl"] .walk [data-sc-stage] { direction: rtl; transform: none; }
+  [dir="rtl"] .walk__rail > * { transform: none; }
+}
 @media (max-width: 900px) { .walk__item:nth-child(n) { margin-top: 0; width: 68vw; } }
 
 /* --------------------------------------------------------- act 5: late -- */
