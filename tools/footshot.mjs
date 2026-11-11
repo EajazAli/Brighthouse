@@ -7,7 +7,7 @@ const page = await ctx.newPage();
 const errs = []; page.on('requestfailed', r => errs.push(r.url()));
 await page.goto(url, { waitUntil: 'networkidle' });
 await page.addStyleTag({ content: 'html{scroll-behavior:auto!important}' });
-await page.evaluate(() => scrollTo(0, document.documentElement.scrollHeight)); await page.waitForTimeout(900);
+for (let i = 0; i < 3; i++) { await page.evaluate(() => scrollTo(0, document.documentElement.scrollHeight)); await page.waitForTimeout(700); }
 const info = await page.evaluate(() => { const a = document.querySelector('.foot__by'), i = a.querySelector('img'), r = i.getBoundingClientRect(); return { text: a.textContent.trim(), img: [Math.round(r.width), Math.round(r.height)], loaded: i.naturalWidth, overflow: document.documentElement.scrollWidth - innerWidth }; });
 console.log(JSON.stringify({ ...info, errs }));
 await page.screenshot({ path: out, clip: { x: 0, y: Math.max(0, +h - 420), width: +w, height: Math.min(420, +h) } });
