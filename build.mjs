@@ -162,6 +162,7 @@ function footer(lang) {
       <div><h2>${f.contact}</h2><ul><li><a href="tel:${SITE.phone}"><span class="ltr">${SITE.phoneShow}</span></a></li><li><a href="${waLink}" target="_blank" rel="noopener">WhatsApp</a></li><li>${f.city}</li><li>${f.hours}</li></ul></div>
     </div>
     <div class="foot__base"><span>© ${new Date().getFullYear()} ${t.legal}. ${f.rights}</span><a href="${ROUTES.home[t.otherLang]}" lang="${t.otherLang}">${t.other}</a></div>
+    <a class="foot__by" href="https://www.hnhmena.com" target="_blank" rel="noopener"><span>${lang === 'ar' ? 'الحضور الرقمي من بناء وإدارة' : 'Digital presence built and managed by'}</span><img src="/assets/img/hh-technology-white.png" alt="H&amp;H Technology" width="500" height="178" loading="lazy" decoding="async"></a>
   </div>
 </footer>`;
 }

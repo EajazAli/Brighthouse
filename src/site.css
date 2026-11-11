@@ -394,6 +394,10 @@ html:lang(ar) .foot h2 { letter-spacing: 0; font-size: var(--sc-t-sm); }
 .foot a { text-decoration: none; }
 .foot a:hover { text-decoration: underline; }
 .foot__base { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--sc-3); margin-top: var(--sc-8); padding-top: var(--sc-5); border-top: 1px solid color-mix(in oklab, #F1EADF 14%, transparent); color: #A9BDB8; font-size: var(--sc-t-xs); }
+/* Maker's credit: one quiet line, the logo at its minimum legible size. */
+.foot a.foot__by { display: flex; align-items: center; justify-content: center; gap: .75rem; width: fit-content; margin: var(--sc-6) auto 0; padding: .5rem .75rem; color: #A9BDB8; font-size: var(--sc-t-xs); text-decoration: none; opacity: .72; transition: opacity 200ms var(--sc-ease-out); }
+.foot a.foot__by:hover, .foot a.foot__by:focus-visible { opacity: 1; text-decoration: none; }
+.foot__by img { height: 32px; width: auto; max-width: none; flex: none; }
 .ltr { direction: ltr; unicode-bidi: isolate; display: inline-block; }
 @media (max-width: 900px) { .foot__grid { grid-template-columns: 1fr 1fr; } .foot__grid > :first-child { grid-column: 1 / -1; } }
 
